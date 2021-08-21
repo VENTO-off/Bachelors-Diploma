@@ -1,0 +1,174 @@
+/*  TabPane CSS */
+.tab-pane .tab-header-background {
+    -fx-background-color: #e5e5e5;
+}
+
+.tab {
+    -fx-background-color: #e5e5e5;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+}
+
+.tab:selected .focus-indicator {
+    -fx-focus-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.tab-pane *.tab-header-area {
+    -fx-padding: 0;
+}
+
+/*  Scrollbar CSS   */
+.scroll-bar .track {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: white;
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.25);
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*  ScrollPane CSS  */
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/*  ListItem CSS    */
+.list-item {
+    -fx-border-color: #f1f1f1;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.list-item:hover {
+    -fx-background-color: #f1f1f1;
+}
+
+.list-item-white {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.list-item-white:hover {
+    -fx-background-color: #f1f1f1;
+}
+
+/*  Indicator CSS   */
+.indicator-green {
+    -fx-fill: #8bc34a;
+    -fx-stroke: #4caf50;
+    -fx-stroke-width: 2;
+    -fx-effect: dropshadow(gaussian, #8bc34a, 15, 0, 0, 0);
+}
+
+.indicator-red {
+    -fx-fill: #FF5722;
+    -fx-stroke: #F44336;
+    -fx-stroke-width: 2;
+    -fx-effect: dropshadow(gaussian, #FF5722, 15, 0, 0, 0);
+}
+
+/*  Button CSS  */
+.button {
+    -fx-background-color: #e5e5e5;
+    -fx-background-radius: 4px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #d7d7d7;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+}
+
+.button:pressed {
+    -fx-background-color: #c9c9c9;
+}
+
+.button-list {
+    -fx-background-color: transparent;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.button-list:hover {
+    -fx-background-color: transparent;
+    -fx-effect: none;
+}
+
+.button-list:pressed {
+    -fx-background-color: #e5e5e5;
+}
+
+/*  TextField CSS   */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 0);
+}
+
+/*  ComboBox CSS    */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: white;
+    -fx-background-radius: 4px;
+    -fx-border-color: #e5e5e5;
+    -fx-border-width: 2px;
+    -fx-border-radius: 4px;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-background-radius: 4px;
+    -fx-padding: 5px;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #b8b8b8;
+    -fx-fill: white;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #b8b8b8;
+    -fx-fill: white;
+}

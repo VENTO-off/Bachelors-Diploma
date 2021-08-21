@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.*?>
+<AnchorPane fx:id="layout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nuzp.yuliy_gorichenko.openhab_helper.gui.Controller">
+    <children>
+        <TabPane layoutY="38.0" prefHeight="362.0" prefWidth="600.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" tabMaxHeight="100.0" tabMaxWidth="75.0" tabMinHeight="100.0" tabMinWidth="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            <tabs>
+                <Tab>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: white;">
+                            <children>
+                                <AnchorPane layoutX="364.0" layoutY="14.0" prefHeight="120.0" prefWidth="120.0">
+                                    <children>
+                                        <Rectangle fx:id="statusBorder" arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                        <FontAwesomeIconView fx:id="statusIcon" glyphName="SPINNER" layoutY="12.714286804199219" size="75" textAlignment="CENTER" wrappingWidth="120.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0" />
+                                        <Label fx:id="statusText" alignment="CENTER" layoutY="88.0" prefHeight="25.0" prefWidth="120.0" text="-" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                                <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="120.0" prefWidth="340.0" spacing="1.0">
+                                    <children>
+                              <HBox alignment="BOTTOM_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label text="main.voltage">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentVoltage" text="-">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                                        <HBox alignment="BOTTOM_LEFT" spacing="5.0">
+                                            <children>
+                                                <Label text="main.amperage">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="currentAmperage" text="-">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                              <HBox alignment="BOTTOM_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label text="main.percentage">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="currentPercent" text="-">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                                        <HBox alignment="BOTTOM_LEFT" spacing="5.0">
+                                            <children>
+                                                <Label text="main.nominal">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="nominalAmperage" text="-">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="5.0">
+                                            <children>
+                                                <Label text="main.temperature">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="currentTemperature" text="-">
+                                                    <font>
+                                                        <Font size="16.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </VBox>
+                                <Label alignment="CENTER" layoutY="151.0" prefHeight="20.0" prefWidth="200.0" text="main.chart" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <AreaChart fx:id="chart" alternativeRowFillVisible="false" animated="false" createSymbols="false" layoutY="225.0" legendVisible="false" prefHeight="210.0" prefWidth="498.0" verticalGridLinesVisible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                    <xAxis>
+                                        <CategoryAxis animated="false" endMargin="1.0" gapStartAndEnd="false" side="BOTTOM" startMargin="1.0" tickLabelsVisible="false" tickMarkVisible="false" fx:id="xAxis" />
+                                    </xAxis>
+                                    <yAxis>
+                                        <NumberAxis fx:id="yAxis" animated="false" autoRanging="false" label="A" side="LEFT" tickUnit="2.0" upperBound="10.0" />
+                                    </yAxis>
+                                </AreaChart>
+                        <StackPane fx:id="mainBlock" prefHeight="375.0" prefWidth="498.0" style="-fx-background-color: white;" visible="false">
+                           <children>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <FontAwesomeIconView glyphName="WRENCH" size="35" />
+                                    <Label text="settings.goto">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                    <graphic>
+                        <VBox alignment="CENTER" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="DASHBOARD" size="25" />
+                                <Label text="tab.main">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </graphic>
+                </Tab>
+                <Tab>
+                    <graphic>
+                        <VBox alignment="CENTER" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="PLUG" size="25" />
+                                <Label text="tab.devices">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </graphic>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: white;">
+                            <children>
+                                <VBox layoutX="15.0" layoutY="13.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                    <children>
+                                        <Label text="devices.title">
+                                            <font>
+                                                <Font name="System Bold" size="16.0" />
+                                            </font>
+                                        </Label>
+                                        <Separator prefHeight="1.0" prefWidth="464.0" />
+                                    </children>
+                                </VBox>
+                                <Button fx:id="editDevices" layoutX="337.0" layoutY="9.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="131.0" style="-fx-font-size: 12px;" text="devices.edit">
+                                    <graphic>
+                                        <FontAwesomeIconView glyphName="PENCIL" size="14" />
+                                    </graphic>
+                                </Button>
+                                <AnchorPane fx:id="showDevices" layoutX="15.0" layoutY="50.0" prefHeight="309.0" prefWidth="444.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                    <children>
+                                        <ScrollPane hbarPolicy="NEVER" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: #e5e5e5; -fx-background-color: white;" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <content>
+                                                <VBox fx:id="currentDevices" />
+                                            </content>
+                                        </ScrollPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="editorDevices" layoutX="15.0" layoutY="50.0" style="-fx-background-color: white;" visible="false" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                    <children>
+                                        <ScrollPane hbarPolicy="NEVER" prefHeight="220.0" prefWidth="427.0" style="-fx-border-color: #e5e5e5; -fx-background-color: white;" vbarPolicy="ALWAYS" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <content>
+                                                <VBox fx:id="allDevices" spacing="5.0" />
+                                            </content>
+                                            <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                            </padding>
+                                        </ScrollPane>
+                                        <TextField fx:id="deviceName" layoutY="231.0" prefWidth="170.0" promptText="devices.name" AnchorPane.leftAnchor="0.0" />
+                                        <TextField fx:id="deviceAmperage" layoutX="173.0" layoutY="231.0" prefHeight="34.0" prefWidth="110.0" promptText="devices.amperage" />
+                                        <TextField fx:id="deviceItem" layoutX="286.0" layoutY="231.0" prefHeight="34.0" prefWidth="130.0" promptText="devices.actuator" />
+                                        <Button fx:id="addDevice" layoutX="419.0" layoutY="230.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="34.0" text="+" AnchorPane.rightAnchor="0.0" />
+                                        <Button fx:id="saveDevices" layoutX="148.0" layoutY="279.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="157.0" text="devices.save">
+                                            <graphic>
+                                                <FontAwesomeIconView glyphName="CHECK" size="14" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </AnchorPane>
+                        <StackPane fx:id="devicesBlock" prefHeight="375.0" prefWidth="498.0" style="-fx-background-color: white;" visible="false">
+                           <children>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <FontAwesomeIconView glyphName="WRENCH" size="35" />
+                                    <Label text="settings.goto">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" />
+                            </padding>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab>
+                    <graphic>
+                        <VBox alignment="CENTER" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="GEARS" size="25" />
+                                <Label text="tab.settings">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </graphic>
+                    <content>
+                        <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="522.0" vbarPolicy="ALWAYS">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="498.0" style="-fx-background-color: white;">
+                                    <children>
+                              <VBox layoutX="25.0" layoutY="14.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                 <children>
+                                    <Label text="settings.title1">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator prefHeight="1.0" prefWidth="464.0" />
+                                 </children>
+                              </VBox>
+                              <AnchorPane layoutX="25.0" layoutY="49.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                 <children>
+                                    <Label layoutY="7.0" text="settings.language" AnchorPane.leftAnchor="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <ComboBox fx:id="language" prefWidth="280.0" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                                        <VBox layoutX="15.0" layoutY="102.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label text="settings.title2">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator prefHeight="1.0" prefWidth="464.0" />
+                                            </children>
+                                        </VBox>
+                                        <AnchorPane layoutX="15.0" layoutY="139.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.openhabip" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="openHabIp" layoutX="173.0" prefWidth="280.0" promptText="127.0.0.1" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="184.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.openhabport" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="openHabPort" layoutX="173.0" prefWidth="280.0" promptText="8080" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="229.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.update" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="updateInterval" layoutX="173.0" prefWidth="280.0" promptText="500" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="274.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.itemamperage" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="itemAmperage" layoutX="173.0" prefWidth="280.0" promptText="My_Item" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                              <AnchorPane layoutX="15.0" layoutY="319.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                 <children>
+                                    <Label layoutY="7.0" text="settings.itemvoltage" AnchorPane.leftAnchor="0.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="itemVoltage" layoutX="173.0" prefWidth="280.0" promptText="My_Item" AnchorPane.rightAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="364.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.itemtemperature" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="itemTemperature" layoutX="173.0" prefWidth="280.0" promptText="My_Item" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="409.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.minamperage" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="minAmperage" layoutX="173.0" prefWidth="280.0" promptText="0.1" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="454.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.maxamperage" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="maxAmperage" layoutX="173.0" prefWidth="280.0" promptText="40" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="499.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.warning" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="warningPercentage" layoutX="173.0" prefWidth="280.0" promptText="80" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="544.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.itemmessage" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="itemMessage" layoutX="173.0" prefWidth="280.0" promptText="My_Item" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <VBox layoutX="15.0" layoutY="601.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label text="settings.title3">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator prefHeight="1.0" prefWidth="464.0" />
+                                            </children>
+                                        </VBox>
+                                        <AnchorPane layoutX="15.0" layoutY="638.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.mysqlip" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="mysqlIp" layoutX="173.0" prefWidth="280.0" promptText="127.0.0.1" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="683.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.mysqlport" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="mysqlPort" layoutX="173.0" prefWidth="280.0" promptText="3306" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="728.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.mysqluser" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="mysqlUser" layoutX="173.0" prefWidth="280.0" promptText="db_user" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="773.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.mysqlpassword" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <PasswordField fx:id="mysqlPassword" prefWidth="280.0" promptText="db_password" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="15.0" layoutY="818.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                                            <children>
+                                                <Label layoutY="7.0" text="settings.mysqldatabase" AnchorPane.leftAnchor="0.0">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="mysqlDatabase" layoutX="173.0" prefWidth="280.0" promptText="db_name" AnchorPane.rightAnchor="0.0" />
+                                            </children>
+                                        </AnchorPane>
+                                        <Button fx:id="saveSettings" layoutX="163.0" layoutY="875.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="157.0" text="settings.save">
+                                            <graphic>
+                                                <FontAwesomeIconView glyphName="CHECK" size="14" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="20.0" />
+                                    </padding>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+                <Tab>
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: white;">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="about.definition" wrapText="true">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="about.functions" wrapText="true">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="about.developer">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="about.language" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                     </children></AnchorPane>
+                    </content>
+                    <graphic>
+                        <VBox alignment="CENTER" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0">
+                            <children>
+                                <FontAwesomeIconView glyphName="INFO_CIRCLE" size="25" />
+                                <Label text="tab.about">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </graphic>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <AnchorPane fx:id="title" layoutX="-1.0" layoutY="-2.0" prefHeight="25.0" prefWidth="600.0" style="-fx-background-color: #e5e5e5;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label alignment="CENTER" layoutX="18.0" layoutY="2.0" text="OpenHAB Helper" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <StackPane fx:id="minimizeButton" layoutX="468.0" layoutY="-55.0" prefHeight="25.0" prefWidth="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="WINDOW_MINIMIZE" size="14" />
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </StackPane>
+                <StackPane fx:id="closeButton" layoutX="458.0" layoutY="-65.0" prefHeight="25.0" prefWidth="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <FontAwesomeIconView glyphName="CLOSE" size="18" />
+                    </children>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </StackPane>
+            </children>
+            <effect>
+                <DropShadow blurType="GAUSSIAN" color="#00000080" height="15.0" radius="7.0" width="15.0" />
+            </effect>
+        </AnchorPane>
+    </children>
+</AnchorPane>
